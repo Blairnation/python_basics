@@ -32,5 +32,5 @@ class MobileMoney:
 money = MobileMoney()
 money.deposit(1000)
 print(money.balance())
-money.redraw(200)
-print(money.balance())
+# money.redraw(200)
+# print(money.balance())

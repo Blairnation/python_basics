@@ -14,7 +14,7 @@ class MobileMoney:
     def deposit(self, amount):
         self.__balance += amount
 
-    def redraw(self, amount):
+    def withdraw(self, amount):
         total = amount - (amount * self.__momo_tax_rate)
         if self.__balance >= total:
             self.__balance -= total
@@ -27,3 +27,10 @@ class MobileMoney:
     def __str__(self):
         return f'Current Balance: ${self.__balance}\n' \
                f'Available Balance: ${self.__balance}'
+
+
+money = MobileMoney()
+money.deposit(1000)
+print(money.balance())
+money.withdraw(200)
+print(money.balance())

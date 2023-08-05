@@ -114,3 +114,7 @@ const person = {
 };
 
 let info = console.log('My full name is ' + person.fullName())
+
+let ant = {firstName:'Adwoa', lastName:'manu'};
+
+console.log(ant.firstName)
