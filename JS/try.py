@@ -1,9 +1,17 @@
+class Car:
+    def __init__(self, model,make):
+       self.model = model
+       self.make = make
 
-# person = {'firstName':"John", 'lastName':"Doe", 'age':50, 'eyeColor':"blue"};
-# firstName = person.firstName
-# checkName = person['lastName']
-# print(firstName, checkName)
+    def move(self):
+        print(f'{self.model} moved')
 
-nums = [1,2,3,4]
-nums.insert(0, 56)
-print(nums)
+class Motor(Car):
+    def __init__(self, model, make, year):
+        super().__init__(model, make)  
+        self.year = year
+
+car = Car('buga', 'tti')
+
+motor = Motor('lambo', 'ghini', 2000)
+motor.move()             

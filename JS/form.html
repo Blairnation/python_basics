@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <style>
+  #container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: red;
+}
+  </style>
+</head>
+<body>
+  <form action="" name="form1" id="form1" method="post" onsubmit="return validateform()">
+    <input type="text" name="firstname" placeholder="Enter firstname" >
+    <input type="submit" value="submit">
+  </form>
+  <br>
+
+  <div id="div1">
+    <p id="p1">This is a paragraph</p>
+    <p id="p2">This is another paragraph</p>
+  </div>
+
+   <p onclick="Date()">Please Enter a Number Between 1 and 10</p>
+   <input id="num" onfocus="this.style.backgroundColor='blue'">
+   <button onclick="myFunction()">Submit</button>
+   <p id="change"></p>
+   
+   <br>
+   <div id ="container" onmouseover="myMove()">
+    <div id ="animate">My animation will go here</div>
+  </div>
+  <br>
+  <p style="display: inline-block; background-color: red; color: white;" onmouseover="this.innerHTML = 'Thank You'" 
+  onmouseout = "this.innerHTML ='Mouse Over Me'">Mouse Over Me</p>
+
+  <script>
+    function validateform(){
+      let x = document.forms['form1']['firstname'].value;
+      if (x == ''){
+        alert('firstname must not be empty')
+        return false
+      }
+    }
+
+    function myFunction(){
+    let y = document.getElementById('num').value;
+    let text;
+    if (isNaN(y) || y < 1 || y > 10){
+      text = 'Invalid Input!!'
+    }
+    else{
+      text = 'Valid Input'
+    }
+     document.getElementById('change').innerHTML = text;
+    }
+
+  function myMove() {
+  let id = null;
+  const elem = document.getElementById("animate");
+  let pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+const para = document.createElement('p')
+const texts = document.createTextNode('this is new')
+para.appendChild(texts);
+
+const division = document.getElementById('div1')
+// division.appendChild(para);
+const elmt = document.getElementById('p1')
+division.insertBefore(para, elmt)
+// elmt.remove();
+</script>
+
+</body>
+</html>

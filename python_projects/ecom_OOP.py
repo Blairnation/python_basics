@@ -133,10 +133,16 @@ def login(user):
 
 def shopping(user):
    item_list = []
-  
+   items_dic = [{'name':'milo','price':20},
+            {'name':'nido', 'price':50},
+            {'name':'gari', 'price':10}]
+
    while True:
-      product = input('Enter Product to buy: ')
-      price = int(input('Enter Price: '))
+      product_name = input('Enter Product to buy: ')
+      for products in items_dic:
+         if products['name'] == product_name:
+            product = products['name']
+            price = products['price']
       item = Item(product, price)
       item_list.append(item)
       option = input('Do u want to shop again(y/n): ')
@@ -149,7 +155,7 @@ def cart_items(item_list, user):
       cart  = Cart(user)
       for item in item_list:
          cart.add_product(item)
-      print('The Item(s) you bought and their Price(s): ')
+      print(f'The Item(s) {cart.user.username} bought and their Price(s): ')
       cart.get_items()
       cart.get_total_price()
          
@@ -161,13 +167,12 @@ def main():
       option = int(input("option\n1.Register\n2.Login\nchoose option:"))
       if option == 1:
          register()
+         break
       if option == 2:
          login()
          break
       
 main()
-
-
 
 
 

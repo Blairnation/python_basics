@@ -104,17 +104,37 @@
 // console.log(ans)
 
 
-const person = {
-  firstName: "John",
-  lastName : "Doe",
-  id       : 5566,
-  fullName : function() {
-    return this.firstName + " " + this.lastName;
+// const person = {
+//   firstName: "John",
+//   lastName : "Doe",
+//   id       : 5566,
+//   fullName : function() {
+//     return this.firstName + " " + this.lastName;
+//   }
+// };
+
+// let info = console.log('My full name is ' + person.fullName())
+// let ant = {firstName:'Adwoa', lastName:'manu'};
+// console.log(ant.firstName)
+
+
+class Car {
+  constructor(model, make){
+    this.make = make;
+    this.model = model;
   }
-};
 
-let info = console.log('My full name is ' + person.fullName())
+  move(){
+    console.log(`${this.model} moved`)
+  }
+}
 
-let ant = {firstName:'Adwoa', lastName:'manu'};
+class Motor extends Car {
+  constructor(model, make, year){
+    super(model, make)
+    this.year = year
+  }
+}
 
-console.log(ant.firstName)
+motor = new Motor('lambo', 'ghini', 2000)
+motor.move()
